@@ -55,7 +55,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.7067901
+      - time: 0.5987654
         functionName: EndCounterAttack
         data: 
         objectReferenceParameter: {instanceID: 0}

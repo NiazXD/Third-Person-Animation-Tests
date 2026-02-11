@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip clip;
+
     public float maxHealth = 100f;
     public float currentHealth;
     public Image healthBar;
@@ -18,6 +21,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void DoDamage(float damage)
     {
+        audioSource.PlayOneShot(clip);
         currentHealth -= damage;
     }
 }

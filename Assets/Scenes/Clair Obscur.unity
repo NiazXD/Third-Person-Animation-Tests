@@ -285,7 +285,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 5.6464896, y: 1.2, z: 3.4436667}
   m_Center: {x: -0.38242412, y: 1.04, z: 1.7718333}
@@ -672,13 +672,16 @@ PrefabInstance:
       addedObject: {fileID: 1418340198}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2de2f2e8bf076504c9768f67c549138a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1418340199}
+      addedObject: {fileID: 1418340200}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2de2f2e8bf076504c9768f67c549138a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1418340201}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2de2f2e8bf076504c9768f67c549138a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1418340200}
+      addedObject: {fileID: 1418340199}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2de2f2e8bf076504c9768f67c549138a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1418340202}
   m_SourcePrefab: {fileID: 100100000, guid: 2de2f2e8bf076504c9768f67c549138a, type: 3}
 --- !u!1 &361372179
 GameObject:
@@ -818,7 +821,7 @@ Transform:
   m_GameObject: {fileID: 691314915}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.74065, y: 0, z: -5}
+  m_LocalPosition: {x: -4.35, y: 0, z: -5.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1201,10 +1204,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 4e47f481985245d4a8ed30b477168fea, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -1388,6 +1391,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.6464896, y: 1.2, z: 3.4436667}
   m_Center: {x: -0.38242412, y: 1.04, z: 1.7718333}
+--- !u!114 &1418340202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418340195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2beedfb5518cf4940ba7917add38b312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player_Behaviour
+  hitBox: {fileID: 1418340201}
+  parryHitbox: {fileID: 77853199}
+  doneCountering: 0
+  counterDamage: 20
+  parryCooldown: 1
 --- !u!1 &1581998277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1570,7 +1590,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647ff7e2eb8258848b21bd10b052fc22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy_HurtBox
+  canDamage: 0
   damage: 25
+--- !u!114 &2067475378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067475371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47149f753de974a42b9e00b89faecf49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 1279812836}
 --- !u!1001 &2108441102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1646,6 +1682,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e2d9fb20e0bfdaa49860496ff033380d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2067475377}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e2d9fb20e0bfdaa49860496ff033380d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2067475378}
   m_SourcePrefab: {fileID: 100100000, guid: e2d9fb20e0bfdaa49860496ff033380d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

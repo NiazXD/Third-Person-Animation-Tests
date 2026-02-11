@@ -12,6 +12,10 @@ public class Player_Behaviour : MonoBehaviour
     Enemy_Behaviour enemy;
     EnemyHealth enemyHealth;
 
+    public float parryCooldown = 1.0f;
+    private float parryTimer = 0f;
+    private bool canParry = true;
+
     void Start()
     {
         hitBox = GetComponent<Collider>();
@@ -36,9 +40,20 @@ public class Player_Behaviour : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (!canParry)
+        {
+            parryTimer -= Time.deltaTime;
+
+            if (parryTimer <= 0f)
+                canParry = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && canParry)
         {
             animator.SetTrigger("Parry");
+
+            canParry = false;
+            parryTimer = parryCooldown;
         }
     }
 
@@ -50,13 +65,18 @@ public class Player_Behaviour : MonoBehaviour
 
     public void DisableParryHitBox()
     {
-        hitBox.enabled = true;
         parryHitbox.enabled = false;
+    }
+
+    public void EnablePlayerHitbox()
+    {
+        hitBox.enabled = true;
     }
 
     public void StartCounter()
     {
         parryHitbox.enabled = false;
+        hitBox.enabled = true;
         animator.SetTrigger("Countered");
     }
 

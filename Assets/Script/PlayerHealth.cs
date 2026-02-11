@@ -7,6 +7,9 @@ public class PlayerHealth : MonoBehaviour
     public float currentHealth;
     public Image healthBar;
     Animator animator;
+
+    public AudioSource audioSource;
+    public AudioClip clip;
     void Start()
     {
         currentHealth = maxHealth;
@@ -22,5 +25,6 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         animator.SetTrigger("Hurt");
+        audioSource.PlayOneShot(clip);
     }
 }

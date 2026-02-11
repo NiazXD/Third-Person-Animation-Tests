@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Parry_HitBox : MonoBehaviour
 {
-
+    public AudioSource audioSource;
+    public AudioClip clip;
 
 
     private void OnTriggerEnter(Collider other)
@@ -18,6 +19,7 @@ public class Parry_HitBox : MonoBehaviour
             {
                 if (!enemy.isAttacking)
                     return;
+                audioSource.PlayOneShot(clip);
                 enemy.GetCountered(); 
                 player.SetCounterTarget(enemy, health);
                 player.StartCounter();
